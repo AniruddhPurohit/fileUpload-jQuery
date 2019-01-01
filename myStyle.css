@@ -1,0 +1,22 @@
+.img-wrap {
+    position: relative;
+    width: 150px;
+}
+.img-wrap .close {
+    color: white;
+    font-size: 29px;
+    padding: 0 7px;
+    border: 2px solid;
+    border-color: white;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 100;
+}
+#preview {
+  display: block;
+  width: 100%;
+  height: auto;
+}
