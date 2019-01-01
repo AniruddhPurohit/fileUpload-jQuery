@@ -12,7 +12,7 @@ Client side validation with input file using jQuery
 
 ## Final Output
 
-![alt text](https://github.com/AniruddhPurohit/fileUpload-jQuery/bob/master/screen.png "Final Output")
+![alt text](https://github.com/AniruddhPurohit/fileUpload-jQuery/blob/master/screen.png "Final Output")
 
 ## HTML Form
 
