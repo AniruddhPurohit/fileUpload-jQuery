@@ -1,6 +1,8 @@
 # File Upload with Validations
 Client side validation with input file using jQuery
 
+[View Demo](https://aniruddhpurohit.github.io/fileUpload-jQuery/)
+
 ## Bootstrap
 * [CSS](https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css)
 
