@@ -31,40 +31,59 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		/*
+		* On change of image selection
+		*/
 		$("#userfile").change(function() {
-            var file_upload = event.target;
-            if(file_upload.files.length > 0) {
-                var ext = $(this).val().split('.').pop().toLowerCase();
-                var size = file_upload.files[0].size;
-                // check for type of logo file
-                if(ext !== 'png') {
-                    alert('Invalid logo file (only .png is allowed).');
-                    return false;
-                }
-                // check for size of logo file
-                if(size > 2097152) {
-                    alert('Maximum 2MB logo size allowed.');
-                    return false;
-                }
-                // read file
-                var reader = new FileReader();
-                reader.onload = function (e) {
+			// get HTML element
+			var file_upload = event.target;
+
+			// check if not empty
+			if(file_upload.files.length > 0) {
+				// get extension of selected image file
+				var ext = $(this).val().split('.').pop().toLowerCase();
+				
+				// get the size in bytes
+				var size = file_upload.files[0].size;
+
+				// check for type of logo file
+				if(ext !== 'png') {
+					alert('Invalid logo file (only .png is allowed).');
+					return false;
+				}
+				// check for size of logo file
+				if(size > 2097152) {
+					alert('Maximum 2MB logo size allowed.');
+					return false;
+				}
+				// read file
+				var reader = new FileReader();
+				reader.onload = function (e) {
 					$('#preview').attr('src', e.target.result);
 				};
 				reader.readAsDataURL(file_upload.files[0]);
-                $('#image-preview').css('display', 'block');
-            } else {
-                $('#image-preview').css('display', 'none');
-            }
-        });
-		// to clear fileinput
+
+				// display image preview
+				$('#image-preview').css('display', 'block');
+			} else {
+				// hide image preview
+				$('#image-preview').css('display', 'none');
+			}
+		});
+		
+		/*
+		* To clear fileinput
+		*/
         $('#clearlogo').click(function(event) {
         	reset_file();
         	$('#preview').attr('src', '');
         	$('#image-preview').css('display', 'none');
         	return false;
         });
-        // to reset file upload control with id=file
+
+        /*
+		* To reset file upload control with id=file
+		*/
         function reset_file() {
             var $file_element = $('#userfile');
             $file_element.wrap('<form>').closest('form').get(0).reset();
